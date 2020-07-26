@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+select { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: #FAEBD7;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #092756;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+}
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+	  <h4>Ipl match Prediction</h4>
+
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+    
+       
+        <!--Season Selection-->
+        <input type="text" name="season" placeholder="year" required="required" />
+        
+       
+       
+        <!--city-->
+		<select name="city" required="required">
+		  <option value="">Select city </option>
+		  <option value=1>Hyderabad</option>
+		  <option value=2>Bangalore</option>
+		  <option value=3>Mumbai</option>
+		  <option value=4>Indore</option>
+		  <option value=5>Kolkata</option>
+		  <option value=6>Delhi</option>
+		  <option value=7>Chandigarh</option>
+		  <option value=8>Jaipur</option>
+		  <option value=9>Chennai</option>
+		  <option value=10>Cape Town</option>
+		  <option value=11>Port Elizabeth</option>
+		  <option value=12>Durban</option>
+		  <option value=13>Centurion</option>
+		  <option value=14>East London</option>
+		  <option value=15>Johannesburg</option>
+		  <option value=16>Kimberley</option>
+		  <option value=17>Bloemfontein</option>
+		  <option value=18>Ahmedabad</option>
+		  <option value=19>Dharamsala</option>
+		  <option value=20>Pune</option>
+		  <option value=21>Raipur</option>
+		  <option value=22>Ranchi</option>
+		  <option value=23>Abu Dhabi</option>
+		  <option value=24>Sharjah</option>
+		  <option value=25>Cuttack</option>
+		  <option value=26>France</option>
+
+  
+		</select>
+		
+		
+
+		 <!--team1-->
+		<select name="city" required="required">
+		  <option value="">Select team1 </option>
+		  <option value=1>Mumbai Indians</option>
+		  <option value=2>Kolkata Knight Riders</option>
+		  <option value=3>Royal Challengers Bangalore</option>
+		  <option value=4>Chennai Super Kings</option>
+		  <option value=5>Rajasthan Royals</option>
+		  <option value=6>Delhi Daredevils</option>
+		  <option value=7>Kings XI Punjab</option>
+		  <option value=8>Sunrisers Hyderabad</option>
+		
+		</select>
+		
+		
+		
+		 <!--team2-->
+		<select name="city" required="required">
+		  <option value="">Select team2 </option>
+		  <option value=1>Mumbai Indians</option>
+		  <option value=2>Kolkata Knight Riders</option>
+		  <option value=3>Royal Challengers Bangalore</option>
+		  <option value=4>Chennai Super Kings</option>
+		  <option value=5>Rajasthan Royals</option>
+		  <option value=6>Delhi Daredevils</option>
+		  <option value=7>Kings XI Punjab</option>
+		  <option value=8>Sunrisers Hyderabad</option>
+		
+		</select>
+		
+		
+		
+		
+		<!--toss_winner-->
+		<select name="toss_winner" required="required">
+		  <option value="">Select toss_winner </option>
+		  <option value=1>Mumbai Indians</option>
+		  <option value=2>Kolkata Knight Riders</option>
+		  <option value=3>Royal Challengers Bangalore</option>
+		  <option value=4>Chennai Super Kings</option>
+		  <option value=5>Rajasthan Royals</option>
+		  <option value=6>Delhi Daredevils</option>
+		  <option value=7>Kings XI Punjab</option>
+		  <option value=8>Sunrisers Hyderabad</option>
+		
+		</select>
+		
+		
+		
+		<!--toss_decision-->
+		<select name="toss_decision" required="required">
+		  <option value="">Select toss_decision </option>
+		  <option value=1>bat</option>
+		  <option value=0>field</option>
+		</select>
+		
+		
+		
+        
+        <button type="submit" class="btn btn-warning btn-block btn-large">Predict</button>
+    </div>
+
+    {{ prediction_text }}
+   <br>
+   <br>
+
+ </div>
+
+
+</body>
+</html>
+
